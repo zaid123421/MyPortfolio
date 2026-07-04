@@ -1,193 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
+<html lang="en">
+  <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zaid | Tech Space</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;600;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-    <style>
-        :root {
-            --glass: rgba(255, 255, 255, 0.03);
-            --border: rgba(255, 255, 255, 0.1);
-        }
-        body {
-            background: #02040a;
-            color: #e6edf3;
-            font-family: 'Lexend', sans-serif;
-            overflow-x: hidden;
-        }
-        .code-font { font-family: 'Fira Code', monospace; }
-        
-        .nebula {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 20% 30%, #1e1b4b 0%, transparent 40%),
-                        radial-gradient(circle at 80% 70%, #312e81 0%, transparent 40%);
-            z-index: -1;
-            filter: blur(80px);
-            animation: pulse 15s infinite alternate;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 0.5; }
-            100% { transform: scale(1.2); opacity: 0.8; }
-        }
-
-        .glass {
-            background: var(--glass);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            transition: all 0.4s ease;
-        }
-        .glass:hover {
-            border-color: rgba(129, 140, 248, 0.6);
-            background: rgba(255, 255, 255, 0.07);
-            transform: translateY(-5px);
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .status-dot {
-            width: 8px; height: 8px;
-            background: #4ade80;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #4ade80;
-        }
-    </style>
-</head>
-<body>
-    <div class="nebula"></div>
+    <meta name="description" content="Zaid Alshamaa — Frontend Developer & Software Engineer Portfolio" />
+    <title>Zaid Alshamaa | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div id="root"></div>
-
-    <script type="text/babel">
-        const App = () => {
-            const data = {
-                name: "Zaid Shamaa",
-                info: "Software Engineer // React Specialist",
-                stats: [
-                    { label: "Experience", val: "2+ Years" },
-                    { label: "Status", val: "Occupied / Building" },
-                    { label: "Base", val: "Damascus" }
-                ],
-                projects: [
-                  { name: "SweetSpot", tag: "Web Tech", desc: "High-performance interface for tech solutions.", url: "https://sweetspotech.com/" },
-                    { name: "Sham Mall", tag: "Web Tech", desc: "Complex dashboard architecture for international operations.", url: "https://sham-store.shop" },
-                    { name: "Teriaq System", tag: "Ed-Tech", desc: "Scalable training management and progress logic.", url: "https://teriaq-test.vercel.app/" }
-                ],
-                logic: ["React.js", "Tailwind", "REST APIs", "SDLC", "Git Flow", "AI Workflow"]
-            };
-
-            return (
-                <div className="max-w-6xl mx-auto px-6 py-12">
-                    {/* Floating Nav */}
-                    <nav className="glass mb-20 p-4 flex justify-between items-center px-8">
-                        <div className="flex items-center gap-3">
-                            <div className="status-dot"></div>
-                            <span className="code-font text-xs font-bold tracking-widest text-indigo-300 uppercase">System Active</span>
-                        </div>
-                        <div className="flex gap-6 text-[10px] font-bold uppercase tracking-widest">
-                            <a href="https://github.com/zaid123421" target="_blank" className="hover:text-indigo-400 transition">GitHub</a>
-                            <span className="opacity-20">|</span>
-                            <span className="text-zinc-500">2025 Edition</span>
-                        </div>
-                    </nav>
-
-                    {/* Main Section */}
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20">
-                        <header className="lg:col-span-8">
-                            <h1 className="text-7xl md:text-9xl font-black tracking-tighter mb-6">
-                                ZAID<br/>
-                                <span className="gradient-text italic font-light tracking-normal">SHAMAA</span>
-                            </h1>
-                            <p className="code-font text-indigo-300/60 mb-10 text-lg">
-                                &gt; Executing: {data.info}
-                            </p>
-                            <div className="flex flex-wrap gap-12">
-                                {data.stats.map(s => (
-                                    <div key={s.label}>
-                                        <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 mb-1">{s.label}</p>
-                                        <p className="font-bold italic">{s.val}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        </header>
-                        <div className="lg:col-span-4 glass p-8 flex flex-col justify-center border-indigo-500/20">
-                            <p className="text-sm leading-relaxed italic text-zinc-400">
-                                "Engineering modern interfaces with a focus on logic, scalability, and user-centric architecture."
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* The Lab (Projects) */}
-                    <section className="mb-20">
-                        <h2 className="code-font text-xs font-bold mb-8 uppercase tracking-[0.5em] text-indigo-400">My Projects</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            {data.projects.map((p, i) => (
-                                /* كرت المشروع الآن هو رابط بالكامل */
-                                <a href={p.url} target="_blank" rel="noopener noreferrer" key={i} className="glass p-10 group relative overflow-hidden block">
-                                    <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-100 transition-opacity">
-                                        <span className="text-4xl">↗</span>
-                                    </div>
-                                    <p className="text-[10px] text-indigo-400 font-bold mb-4 uppercase tracking-widest">{p.tag}</p>
-                                    <h3 className="text-2xl font-bold mb-4 group-hover:gradient-text transition-all">{p.name}</h3>
-                                    <p className="text-xs text-zinc-500 leading-relaxed">{p.desc}</p>
-                                </a>
-                            ))}
-                        </div>
-                    </section>
-
-                    {/* Engineering Logic (Skills) */}
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20">
-                        <div className="lg:col-span-4 glass p-10 bg-indigo-500/5">
-                            <h2 className="code-font text-xs font-bold mb-8 uppercase tracking-widest text-indigo-400">Tech Skills</h2>
-                            <div className="space-y-3">
-                                {data.logic.map(l => (
-                                    <div key={l} className="flex items-center gap-3">
-                                        <div className="h-[1px] w-4 bg-indigo-800"></div>
-                                        <span className="text-sm font-medium italic">{l}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                        <div className="lg:col-span-8 glass p-10 flex flex-col justify-between">
-                            <div>
-                                <h2 className="code-font text-xs font-bold mb-8 uppercase tracking-widest text-zinc-500">Insight</h2>
-                                <h3 className="text-4xl font-bold italic mb-6 leading-tight">IT Engineering @ Damascus University</h3>
-                                <p className="text-zinc-500 text-sm italic">5th Year Software Engineering Specialization. Bridging the gap between academic theory and real-world deployment.</p>
-                            </div>
-                            <div className="mt-12 flex justify-between items-end">
-                                <div className="text-[10px] text-zinc-600 uppercase tracking-widest">
-                                    Languages: <span className="text-white">Arabic (Native)</span> / <span className="text-indigo-400">English (Proficient)</span>
-                                </div>
-                                <div className="text-xs font-bold border border-white/10 px-4 py-2 rounded-full">
-                                    2025
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Final CTA */}
-                    <footer className="glass p-12 text-center border-dashed">
-                        <p className="text-[10px] uppercase tracking-[0.8em] text-zinc-600 mb-4 italic">End of Log</p>
-                        <h2 className="text-2xl font-bold mb-6 italic">Let's build the next big thing.</h2>
-                        <a href="mailto:zshamaa20@gmail.com" className="code-font text-indigo-400 hover:text-white transition underline decoration-indigo-800">zshamaa20@gmail.com</a>
-                    </footer>
-                </div>
-            );
-        };
-
-        const root = ReactDOM.createRoot(document.getElementById("root"));
-        root.render(<App />);
-    </script>
-</body>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
