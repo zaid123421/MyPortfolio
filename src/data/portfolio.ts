@@ -102,6 +102,18 @@ export const portfolio = {
     },
     items: [
       {
+        id: 'sweetspot',
+        name: 'SweetSpot',
+        tag: { en: 'Digital Agency', ar: 'وكالة رقمية' },
+        description: {
+          en: 'SweetSpot aims to deliver innovative, high-performing, high-quality, and efficient services for an exceptional user experience.',
+          ar: 'يهدف SweetSpot إلى تقديم خدمات مبتكرة وعالية الأداء والجودة والكفاءة لتجربة مستخدم استثنائية.',
+        },
+        url: 'https://sweetspot-self.vercel.app/en',
+        featured: true,
+        gradient: 'from-sky-500/20 via-blue-500/10 to-indigo-500/20',
+      },
+      {
         id: 'sham-mall',
         name: 'Sham Mall',
         tag: { en: 'E-Commerce', ar: 'تجارة إلكترونية' },
